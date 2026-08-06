@@ -1,0 +1,261 @@
+/* ── Reset & base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* ── Layout ── */
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+/* ── Header ── */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 0;
+}
+
+.tab {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: #e2e8f0;
+}
+
+.tab.active {
+  color: #60a5fa;
+  border-bottom-color: #60a5fa;
+  font-weight: 600;
+}
+
+/* ── Panel ── */
+.calculator-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ── Form fields ── */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.model-select,
+textarea,
+input[type="number"] {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  padding: 0.6rem 0.8rem;
+  width: 100%;
+  transition: border-color 0.15s;
+}
+
+.model-select:focus,
+textarea:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #60a5fa;
+}
+
+textarea {
+  resize: vertical;
+  font-family: "Courier New", monospace;
+  line-height: 1.5;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #60a5fa;
+  cursor: pointer;
+}
+
+/* ── Two-column layout ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Token count row ── */
+.token-count {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.badge {
+  background: #1e3a5f;
+  color: #93c5fd;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.value-badge {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #93c5fd;
+  margin-left: auto;
+}
+
+.cost {
+  color: #34d399;
+  font-weight: 600;
+}
+
+/* ── Hint ── */
+.hint {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: -0.1rem;
+}
+
+/* ── Results card ── */
+.results-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  border-bottom: 1px solid #1e3a5f;
+  padding-bottom: 0.6rem;
+}
+
+.result-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.result-row strong {
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.total-cost {
+  margin-top: 0.25rem;
+}
+
+.cost-big {
+  font-size: 1.4rem;
+  color: #34d399 !important;
+  font-weight: 700;
+}
+
+/* ── Progress bar ── */
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 160px;
+  justify-content: flex-end;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #334155;
+  border-radius: 999px;
+  overflow: hidden;
+  max-width: 120px;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* ── Footer ── */
+.app-footer {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #475569;
+}
+
+.app-footer a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
