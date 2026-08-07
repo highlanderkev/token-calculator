@@ -55,7 +55,7 @@ def _count_with_tiktoken(text: str, encoding_name: str) -> int:
 
 def _count_with_transformers(text: str, hf_model_id: str) -> int:
     tokenizer = _get_transformers_tokenizer(hf_model_id)
-    return len(tokenizer.encode(text))
+    return len(tokenizer.encode(text, add_special_tokens=False))
 
 
 # ── Public API ─────────────────────────────────────────────────────────────

@@ -49,10 +49,8 @@ OPENAI_TOOL_SPEC: dict[str, Any] = {
                 },
                 "model": {
                     "type": "string",
-                    "description": (
-                        "The model name to use for tokenization. "
-                        f"Available models: {list_models()}."
-                    ),
+                    "enum": list_models(),
+                    "description": "The model name to use for tokenization.",
                     "default": "gpt-4o",
                 },
                 "direction": {
@@ -106,7 +104,7 @@ def _build_langchain_tool():
             ) -> str:  # pragma: no cover
                 import asyncio
 
-                return await asyncio.to_thread(self._run, text, model, direction)
+                return await asyncio.to_thread(self._run, text, model, direction, **kwargs)
 
         return _TokenCalculatorTool
 
@@ -122,7 +120,13 @@ def _build_langchain_tool():
                 "pip install 'token-calculator[langchain]'"
             )
 
-            def run(self, text: str, model: str = "gpt-4o", direction: str = "input") -> str:
+            def run(
+                self,
+                text: str,
+                model: str = "gpt-4o",
+                direction: str = "input",
+                **kwargs: Any,
+            ) -> str:
                 return _invoke(text, model, direction)
 
             __call__ = run

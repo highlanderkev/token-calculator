@@ -137,9 +137,8 @@ MODEL_REGISTRY: dict[str, ModelInfo] = {
 def get_model_info(model: str) -> ModelInfo:
     """Return :class:`ModelInfo` for *model*, raising ``KeyError`` if unknown."""
     if model not in MODEL_REGISTRY:
-        raise KeyError(
-            f"Unknown model '{model}'. Available models: {list(MODEL_REGISTRY)}"
-        )
+        available = ", ".join(list_models())
+        raise KeyError(f"Unknown model '{model}'. Available models: {available}")
     return MODEL_REGISTRY[model]
 
 
