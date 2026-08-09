@@ -10,7 +10,8 @@ agentic AI systems (OpenAI Assistants, LangChain, CrewAI, AutoGen, …).
 
 ```bash
 pip install token-calculator          # tiktoken only (OpenAI models)
-pip install "token-calculator[all]"   # + transformers + langchain-core
+pip install "token-calculator[all]"   # + transformers + langchain-core + streamlit
+pip install "token-calculator[ui]"    # + Streamlit UI
 ```
 
 ## Quick start
@@ -96,6 +97,16 @@ print(result)
 # {"model": "gpt-4o-mini", "token_count": 10, "direction": "output",
 #  "estimated_cost_usd": 6e-06}
 ```
+
+### 4. Streamlit UI
+
+```bash
+pip install -e ".[ui]"
+streamlit run /absolute/path/to/token-calculator/streamlit_app.py
+```
+
+The UI provides a text area, model selector, direction toggle, and live token
+and cost summary for quick testing and evaluation.
 
 ---
 
