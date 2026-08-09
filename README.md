@@ -102,7 +102,7 @@ print(result)
 
 ```bash
 pip install -e ".[ui]"
-streamlit run /absolute/path/to/token-calculator/streamlit_app.py
+streamlit run streamlit_app.py
 ```
 
 The UI provides a text area, model selector, direction toggle, and live token
