@@ -21,9 +21,13 @@ transformers = [
 langchain = [
     "langchain-core>=0.2.0",
 ]
+ui = [
+    "streamlit>=1.61.1",
+]
 all = [
     "transformers>=4.40.0",
     "langchain-core>=0.2.0",
+    "streamlit>=1.61.1",
 ]
 dev = [
     "pytest>=8.0.0",
